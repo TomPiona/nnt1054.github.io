@@ -18,6 +18,7 @@ ctx,
 keystate,
 WIDTH = document.body.clientWidth;
 HEIGHT = document.body.clientHeight;
+
 /**
  * The player paddle
  *
@@ -161,6 +162,10 @@ function makeEnemy() {
 						ctx.shadowBlur = 2;
 						ctx.shadowOffsetX = -6;
 						ctx.shadowOffsetY = 6;
+						var img = document.getElementById("image");
+						var pat=ctx.createPattern(img,"repeat");
+						ctx.fillStyle=pat;
+						ctx.fill();
 						ctx.stroke();
         }
    };
@@ -191,6 +196,10 @@ function makeEnemy2() {
 				ctx.shadowBlur = 2;
 	      ctx.shadowOffsetX = -6;
 	      ctx.shadowOffsetY = 6;
+				var img = document.getElementById("image");
+				var pat=ctx.createPattern(img,"repeat");
+				ctx.fillStyle=pat;
+				ctx.fill();
 				ctx.stroke();
         }
    };
@@ -259,11 +268,11 @@ function draw() {
 	player.draw();
 	drawlist(bullets);
 	drawlist(enemies);
-	ctx.fillStyle = "blue";
+	ctx.fillStyle = "white";
 	ctx.font = "25px Helvetica";
 	ctx.fillText("SCORE: " + score, 10, 30);
 	if (player.dead) {
-	              ctx.fillStyle = "red";
+	              ctx.fillStyle = "white";
                 ctx.font = "35px Helvetica";
                 ctx.fillText("Game Over!", WIDTH/2 - ctx.measureText("Game Over!").width/2, (HEIGHT)/1.35);
                 ctx.font = "30px Helvetica";
